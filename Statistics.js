@@ -23,7 +23,7 @@ class Statistics {
         let games = this.gameResults.length;
         let wins = this.gameResults.filter(result => result.win).length;
         let losses = this.gameResults.filter(result => !result.win).length;
-        // return[games,liczbaWygranych,LiczbaPorazek]
+        return [games, wins, losses]
     }
 
 }
