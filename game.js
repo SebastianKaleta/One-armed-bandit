@@ -17,12 +17,19 @@ class Game {
         this.render();
     }
 
-    render(colors = ['grey', 'grey', 'grey'], money = this.wallet.getWalletValue(), result = "", stats = [0, 0, 0]) {
+    render(colors = ['grey', 'grey', 'grey'], money = this.wallet.getWalletValue(), result = "", stats = [0, 0, 0], bid = 0, wonMoney = 0) {
         this.boards.forEach((board, index) => {
             board.style.backgroundColor = colors[index];
         })
 
         this.spanWallet.textContent = money;
+        if (result) {
+            result = `Wygrałeś ${wonMoney}`
+        } else if (!result && result != "") {
+            result = `Przegrałeś ${bid}`;
+        }
+
+
         this.spanResult.textContent = result;
         this.spanGames.textContent = stats[0]
         this.spanWins.textContent = stats[0]
